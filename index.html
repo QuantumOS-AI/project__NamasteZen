@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namaste Zen | Luxury Yoga in Scottsdale</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --sand-beige: #E6DFD9;
+            --sage-green: #C2C5AA;
+            --terracotta: #C17C74;
+            --soft-lavender: #E4D7F7;
+            --blush: #F7D9D9;
+            --dark-text: #433E3F;
+            --light-text: #F8F4E3;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-text);
+            background-color: var(--sand-beige);
+            overflow-x: hidden;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+        
+        .hamburger {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 100;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger div {
+            width: 30px;
+            height: 2px;
+            background: var(--dark-text);
+            margin: 6px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-open .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+            background: var(--light-text);
+        }
+        
+        .menu-open .line2 {
+            opacity: 0;
+        }
+        
+        .menu-open .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+            background: var(--light-text);
+        }
+        
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100%;
+            background: rgba(67, 62, 63, 0.95);
+            z-index: 99;
+            transition: right 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .menu-open .side-menu {
+            right: 0;
+        }
+        
+        .menu-item {
+            color: var(--light-text);
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .menu-item:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--terracotta);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .menu-item:hover:after {
+            width: 100%;
+        }
+        
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://images.unsplash.com/photo-1545389336-cf090694435e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1964&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 10;
+            padding: 0 1rem;
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-delayed {
+            animation: float 6s ease-in-out 2s infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .rotate-slow {
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .lotus {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            opacity: 0.7;
+        }
+        
+        .lotus1 {
+            top: 20%;
+            left: 15%;
+        }
+        
+        .lotus2 {
+            top: 60%;
+            right: 20%;
+        }
+        
+        .lotus3 {
+            bottom: 15%;
+            left: 30%;
+        }
+        
+        .section-padding {
+            padding: 6rem 1rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--terracotta);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 2rem auto;
+            position: relative;
+            padding: 0 2rem;
+        }
+        
+        .quote:before,
+        .quote:after {
+            content: "";
+            position: absolute;
+            font-size: 4rem;
+            color: var(--sage-green);
+            opacity: 0.5;
+        }
+        
+        .quote:before {
+            left: 0;
+            top: -20px;
+        }
+        
+        .quote:after {
+            content: "";
+            right: 0;
+            bottom: -40px;
+        }
+        
+        .class-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            /* height: 400px; */
+            position: relative;
+        }
+        
+        .class-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .class-card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .class-card-content {
+            padding: 1.5rem;
+        }
+        
+        .reserve-btn {
+            background: var(--terracotta);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            /* position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%); */
+        }
+        
+        .reserve-btn:hover {
+            background: var(--dark-text);
+        }
+        
+        .amenity-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .amenity-icon:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--sage-green);
+            border-radius: 50%;
+            z-index: -1;
+            transform: scale(0);
+            transition: all 0.3s ease;
+        }
+        
+        .amenity-icon:hover:before {
+            transform: scale(1);
+        }
+        
+        .amenity-icon i {
+            font-size: 2rem;
+            color: var(--dark-text);
+            transition: all 0.3s ease;
+        }
+        
+        .amenity-icon:hover i {
+            color: white;
+        }
+        
+        .instructor-card {
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        
+        .instructor-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .instructor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .instructor-card:hover .instructor-image {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .instructor-card:hover .instructor-image img {
+            transform: scale(1.1);
+        }
+        
+        .instructor-details {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .instructor-card:hover .instructor-details {
+            opacity: 1;
+            max-height: 300px;
+        }
+        
+        .calendar-view {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .calendar-day {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+        
+        .calendar-class {
+            display: flex;
+            background: var(--soft-lavender);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            align-items: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .calendar-class:hover {
+            background: var(--sage-green);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .capacity-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        
+        .capacity-low {
+            background: #4CAF50;
+        }
+        
+        .capacity-medium {
+            background: #FFC107;
+        }
+        
+        .capacity-high {
+            background: #F44336;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            min-height: 100%;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .blog-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .connect-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 0.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .connect-icon:hover {
+            background: var(--terracotta);
+        }
+        
+        .connect-icon i {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            transition: all 0.3s ease;
+        }
+        
+        .connect-icon:hover i {
+            color: white;
+        }
+        
+        .newsletter-form {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+        }
+        
+        .newsletter-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--terracotta);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background: var(--dark-text);
+        }
+        
+        .floating-booking {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--terracotta);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 90;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-booking:hover {
+            background: var(--dark-text);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .booking-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 95;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .booking-modal {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+            transform: translateY(50px);
+            transition: all 0.3s ease;
+        }
+        
+        .booking-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .booking-overlay.active .booking-modal {
+            transform: translateY(0);
+        }
+        
+        .close-booking {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .booking-form input,
+        .booking-form select {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .booking-submit {
+            background: var(--terracotta);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .booking-submit:hover {
+            background: var(--dark-text);
+        }
+        
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 3rem 1rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .quote {
+                font-size: 1.2rem;
+                padding: 0 1rem;
+            }
+            .quote:before,
+            .quote:after {
+                font-size: 3rem;
+            }
+            .lotus {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .main{
+            max-width: 100vw;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <div class="logo fixed top-5 left-5 z-50">
+        <img src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/yoga.png" alt="Namaste Zen Logo" class="w-12 h-12 filter invert">
+    </div>
+
+    <div class="hamburger" id="hamburger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+
+    <div class="side-menu">
+        <a href="#home" class="menu-item">Home</a>
+        <a href="#philosophy" class="menu-item">Philosophy</a>
+        <a href="#classes" class="menu-item">Classes</a>
+        <a href="#amenities" class="menu-item">Amenities</a>
+        <a href="#instructors" class="menu-item">Instructors</a>
+        <a href="#schedule" class="menu-item">Schedule</a>
+        <a href="#journal" class="menu-item">Journal</a>
+        <a href="#connect" class="menu-item">Connect</a>
+    </div>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <img src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/lotus-flower.png" alt="Lotus" class="lotus lotus1 floating">
+            <img src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/lotus-flower.png" alt="Lotus" class="lotus lotus2 floating-delayed">
+            <img src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/lotus-flower.png" alt="Lotus" class="lotus lotus3 floating">
+    
+            <div class="hero-content">
+                <h1 class="text-5xl md:text-7xl font-light mb-4 animate__animated animate__fadeIn">Namaste Zen</h1>
+                <p class="text-xl md:text-2xl font-light mb-8 animate__animated animate__fadeIn animate__delay-1s">Where Mindfulness Meets Luxury in the Heart of Scottsdale</p>
+                <button class="bg-white bg-opacity-30 hover:bg-opacity-50 text-white py-3 px-8 rounded-full backdrop-filter backdrop-blur-sm border border-white border-opacity-30 transition duration-300 animate__animated animate__fadeIn animate__delay-2s">
+                    Begin Your Journey
+                </button>
+            </div>
+        </section>
+    
+        <!-- Philosophy Section -->
+        <section id="philosophy" class="section-padding bg-white">
+            <div class="container mx-auto">
+                <div class="flex flex-wrap">
+                    <div class="w-full md:w-1/2 p-4">
+                        <h2 class="section-title">The Namaste Zen Journey</h2>
+                        <p class="text-lg mb-6">At Namaste Zen, we believe that true wellness emerges from the harmony of mind, body, and spirit. Our mindful approach to yoga integrates ancient wisdom with modern wellness practices, creating a sanctuary where you can reconnect with
+                            your authentic self.</p>
+                        <p class="text-lg mb-6">Nestled within the serene landscape of Scottsdale's most luxurious resort, our studio draws inspiration from the natural beauty of the Sonoran Desert, infusing our practice with its grounding energy and timeless tranquility.</p>
+                        <div class="quote">
+                            "Yoga is not about touching your toes; it's about what you learn on the way down. At Namaste Zen, we create the space for that profound journey of self-discovery."
+                            <p class="text-right mt-4">— Maya Reynolds, Founder</p>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 p-4 flex justify-center items-center">
+                        <div class="relative w-80 h-80">
+                            <div class="absolute inset-0 bg-sage-green rounded-full opacity-20 animate__animated animate__pulse animate__infinite"></div>
+                            <div class="absolute inset-4 bg-soft-lavender rounded-full opacity-30 rotate-slow"></div>
+                            <div class="absolute inset-8 bg-blush rounded-full opacity-40"></div>
+                            <div class="absolute inset-0 flex justify-center items-center">
+                                <img src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/meditation.png" alt="Meditation" class="w-32 h-32">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Classes Section -->
+        <section id="classes" class="section-padding" style="background-color: var(--sage-green);">
+            <div class="container mx-auto">
+                <h2 class="section-title text-white">Class Experiences</h2>
+                <p class="text-white text-lg mb-8 max-w-3xl">Our intimate classes are limited to just 12 practitioners, ensuring personalized attention and a deeply immersive experience. Each class is thoughtfully designed to nurture your practice wherever you are on your yoga journey.</p>
+    
+                <div class="flex flex-wrap -mx-4">
+                    <div class="w-full md:w-1/3 p-4">
+                        <div class="class-card">
+                            <div class="class-card-image" style="background-image: url('https://images.unsplash.com/photo-1545389336-cf090694435e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80');"></div>
+                            <div class="class-card-content">
+                                <h3 class="text-xl mb-2">Desert Mindful Flow</h3>
+                                <p class="text-sm mb-4">A gentle yet powerful practice that synchronizes breath with movement, fostering mindfulness and inner peace inspired by the serene desert landscape.</p>
+                                <p class="text-sm mb-8"><strong>Duration:</strong> 75 minutes</p>
+                                <div class="text-center"><button class="reserve-btn">Reserve Your Mat</button></div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="w-full md:w-1/3 p-4">
+                        <div class="class-card">
+                            <div class="class-card-image" style="background-image: url('https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80');"></div>
+                            <div class="class-card-content">
+                                <h3 class="text-xl mb-2">Sunrise Vinyasa</h3>
+                                <p class="text-sm mb-4">Greet the day with an energizing practice that awakens body and mind. Experience the magic of morning light streaming through our floor-to-ceiling windows.</p>
+                                <p class="text-sm mb-8"><strong>Duration:</strong> 60 minutes</p>
+                                <div class="text-center"><button class="reserve-btn">Reserve Your Mat</button></div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="w-full md:w-1/3 p-4">
+                        <div class="class-card">
+                            <div class="class-card-image" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=799&q=80');"></div>
+                            <div class="class-card-content">
+                                <h3 class="text-xl mb-2">Moonlight Meditation</h3>
+                                <p class="text-sm mb-4">A deeply restorative evening practice combining gentle movement, breathwork, and guided meditation under the glow of moonlight in our garden studio.</p>
+                                <p class="text-sm mb-8"><strong>Duration:</strong> 90 minutes</p>
+                                <div class="text-center"><button class="reserve-btn">Reserve Your Mat</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Amenities Section -->
+        <section id="amenities" class="section-padding bg-white">
+            <div class="container mx-auto">
+                <h2 class="section-title">Luxury Amenities</h2>
+                <p class="text-lg mb-12 max-w-3xl">At Namaste Zen, we've curated every detail to ensure your practice is elevated by our five-star amenities, creating an experience that nurtures all your senses.</p>
+    
+                <div class="flex flex-wrap -mx-4 mb-12">
+                    <div class="w-full md:w-1/3 lg:w-1/5 p-4 text-center">
+                        <div class="amenity-icon">
+                            <i class="fas fa-temperature-low"></i>
+                        </div>
+                        <h3 class="text-lg mb-2">Aromatherapy Studio</h3>
+                        <p class="text-sm">Temperature-controlled spaces with curated essential oil blends to enhance your practice.</p>
+                    </div>
+    
+                    <div class="w-full md:w-1/3 lg:w-1/5 p-4 text-center">
+                        <div class="amenity-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="text-lg mb-2">Organic Refreshments</h3>
+                        <p class="text-sm">Complimentary herbal teas and fruit-infused waters sourced from local organic farms.</p>
+                    </div>
+    
+                    <div class="w-full md:w-1/3 lg:w-1/5 p-4 text-center">
+                        <div class="amenity-icon">
+                            <i class="fas fa-yoga"></i>
+                        </div>
+                        <h3 class="text-lg mb-2">Premium Accessories</h3>
+                        <p class="text-sm">Designer yoga mats, blocks, bolsters, and blankets provided for your optimal comfort.</p>
+                    </div>
+    
+                    <div class="w-full md:w-1/3 lg:w-1/5 p-4 text-center">
+                        <div class="amenity-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="text-lg mb-2">Meditation Gardens</h3>
+                        <p class="text-sm">Private outdoor spaces for personal reflection and mindfulness practice.</p>
+                    </div>
+    
+                    <div class="w-full md:w-1/3 lg:w-1/5 p-4 text-center">
+                        <div class="amenity-icon">
+                            <i class="fas fa-shower"></i>
+                        </div>
+                        <h3 class="text-lg mb-2">Spa Facilities</h3>
+                        <p class="text-sm">Luxurious changing rooms with rainfall showers and organic body products.</p>
+                    </div>
+                </div>
+    
+                <div class="text-center">
+                    <a href="#" class="inline-block bg-terracotta text-white py-3 px-8 rounded-full transition duration-300 hover:bg-dark-text">Experience Our Space</a>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Parallax Section -->
+        <section class="parallax h-96" style="background-image: url('https://images.unsplash.com/photo-1532798442725-41036acc7489?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80');">
+            <div class="h-full flex items-center justify-center">
+                <div class="text-center text-white p-8 bg-black bg-opacity-30 backdrop-filter backdrop-blur-sm rounded-lg">
+                    <h2 class="text-3xl md:text-4xl mb-4">"The journey of yoga begins with a single breath."</h2>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Instructors Section -->
+        <section id="instructors" class="section-padding">
+            <div class="container mx-auto">
+                <h2 class="section-title">Meet Our Guides</h2>
+                <p class="text-lg mb-12 max-w-3xl">Our instructors are master practitioners who bring decades of experience and a passion for mindful growth to every class they lead.</p>
+    
+                <div class="flex flex-wrap -mx-4">
+                    <div class="w-full md:w-1/3 p-4">
+                        <div class="instructor-card">
+                            <div class="instructor-image">
+                                <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Maya Reynolds">
+                            </div>
+                            <h3 class="text-xl mb-1">Maya Reynolds</h3>
+                            <p class="text-sm mb-2">Vinyasa & Meditation</p>
+                            <div class="instructor-details">
+                                <p class="text-sm mb-4">With over 15 years of practice in mindful movement, Maya brings a grounding presence to each class, focusing on alignment and breath awareness.</p>
+                                <p class="text-sm mb-4"><strong>Philosophy:</strong> "Yoga is the journey of the self, through the self, to the self."</p>
+                                <a href="#" class="text-terracotta hover:underline">View Schedule</a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="w-full md:w-1/3 p-4">
+                        <div class="instructor-card">
+                            <div class="instructor-image">
+                                <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="David Chen">
+                            </div>
+                            <h3 class="text-xl mb-1">David Chen</h3>
+                            <p class="text-sm mb-2">Hatha & Restorative</p>
+                            <div class="instructor-details">
+                                <p class="text-sm mb-4">David's approach combines traditional Hatha practices with modern therapeutic techniques, creating a nurturing space for healing and growth.</p>
+                                <p class="text-sm mb-4"><strong>Philosophy:</strong> "In stillness, we discover our truest selves."</p>
+                                <a href="#" class="text-terracotta hover:underline">View Schedule</a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="w-full md:w-1/3 p-4">
+                        <div class="instructor-card">
+                            <div class="instructor-image">
+                                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80" alt="Elena Vega">
+                            </div>
+                            <h3 class="text-xl mb-1">Elena Vega</h3>
+                            <p class="text-sm mb-2">Kundalini & Soundbath</p>
+                            <div class="instructor-details">
+                                <p class="text-sm mb-4">Elena specializes in energy work and sound healing, guiding students through transformative experiences that awaken inner awareness.</p>
+                                <p class="text-sm mb-4"><strong>Philosophy:</strong> "When we harmonize with our true vibration, everything flows."</p>
+                                <a href="#" class="text-terracotta hover:underline">View Schedule</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Schedule Section -->
+        <section id="schedule" class="section-padding" style="background-color: var(--soft-lavender);">
+            <div class="container mx-auto">
+                <h2 class="section-title">Class Schedule</h2>
+                <p class="text-lg mb-8 max-w-3xl">Find the perfect class to complement your schedule and wellness goals. Our intimate class sizes ensure personal attention from our expert instructors.</p>
+    
+                <div class="calendar-view">
+                    <div class="calendar-header">
+                        <h3 class="text-xl">April 2025</h3>
+                        <div>
+                            <button class="bg-sage-green text-white py-2 px-4 rounded-lg mr-2">Previous</button>
+                            <button class="bg-sage-green text-white py-2 px-4 rounded-lg">Next</button>
+                        </div>
+                    </div>
+    
+                    <div class="calendar-day">
+                        <h4 class="text-lg font-medium">Monday, April 7</h4>
+    
+                        <div class="calendar-class">
+                            <div class="w-1/5">
+                                <p class="text-sm">6:00 AM</p>
+                            </div>
+                            <div class="w-3/5">
+                                <p class="font-medium">Sunrise Vinyasa</p>
+                                <p class="text-sm">with Elena Vega</p>
+                            </div>
+                            <div class="w-1/5 text-right">
+                                <span class="capacity-indicator capacity-low"></span>
+                                <span class="text-sm">4/12</span>
+                            </div>
+                        </div>
+    
+                        <div class="calendar-class">
+                            <div class="w-1/5">
+                                <p class="text-sm">9:30 AM</p>
+                            </div>
+                            <div class="w-3/5">
+                                <p class="font-medium">Desert Mindful Flow</p>
+                                <p class="text-sm">with Maya Reynolds</p>
+                            </div>
+                            <div class="w-1/5 text-right">
+                                <span class="capacity-indicator capacity-medium"></span>
+                                <span class="text-sm">8/12</span>
+                            </div>
+                        </div>
+    
+                        <div class="calendar-class">
+                            <div class="w-1/5">
+                                <p class="text-sm">5:30 PM</p>
+                            </div>
+                            <div class="w-3/5">
+                                <p class="font-medium">Evening Restorative</p>
+                                <p class="text-sm">with David Chen</p>
+                            </div>
+                            <div class="w-1/5 text-right">
+                                <span class="capacity-indicator capacity-high"></span>
+                                <span class="text-sm">10/12</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="calendar-day">
+                        <h4 class="text-lg font-medium">Tuesday, April 8</h4>
+    
+                        <div class="calendar-class">
+                            <div class="w-1/5">
+                                <p class="text-sm">7:00 AM</p>
+                            </div>
+                            <div class="w-3/5">
+                                <p class="font-medium">Morning Meditation</p>
+                                <p class="text-sm">with Maya Reynolds</p>
+                            </div>
+                            <div class="w-1/5 text-right">
+                                <span class="capacity-indicator capacity-low"></span>
+                                <span class="text-sm">3/12</span>
+                            </div>
+                        </div>
+    
+                        <div class="calendar-class">
+                            <div class="w-1/5">
+                                <p class="text-sm">10:00 AM</p>
+                            </div>
+                            <div class="w-3/5">
+                                <p class="font-medium">Gentle Hatha</p>
+                                <p class="text-sm">with David Chen</p>
+                            </div>
+                            <div class="w-1/5 text-right">
+                                <span class="capacity-indicator capacity-medium"></span>
+                                <span class="text-sm">6/12</span>
+                            </div>
+                        </div>
+    
+                        <div class="calendar-class">
+                            <div class="w-1/5">
+                                <p class="text-sm">7:30 PM</p>
+                            </div>
+                            <div class="w-3/5">
+                                <p class="font-medium">Moonlight Meditation</p>
+                                <p class="text-sm">with Elena Vega</p>
+                            </div>
+                            <div class="w-1/5 text-right">
+                                <span class="capacity-indicator capacity-high"></span>
+                                <span class="text-sm">11/12</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="text-center mt-8">
+                        <button class="bg-terracotta text-white py-3 px-8 rounded-full transition duration-300 hover:bg-dark-text">View Full Schedule</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Journal Section -->
+        <section id="journal" class="section-padding bg-white">
+            <div class="container mx-auto">
+                <h2 class="section-title">Mindfulness Journal</h2>
+                <p class="text-lg mb-12 max-w-3xl">Explore insights and practices to deepen your mindfulness journey both on and off the mat.</p>
+    
+                <div class="flex flex-wrap -mx-4">
+                    <div class="w-full md:w-1/3 p-4">
+                        <div class="blog-card">
+                            <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1611095566888-f1446042c8bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80');"></div>
+                            <div class="blog-content">
+                                <h3 class="text-xl mb-2">The Art of Desert Meditation</h3>
+                                <p class="text-sm mb-4">Discover how the desert landscape can inspire and deepen your meditation practice through its vast stillness and timeless wisdom.</p>
+                                <a href="#" class="text-terracotta hover:underline">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="w-full md:w-1/3 p-4">
+                        <div class="blog-card">
+                            <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1820&q=80');"></div>
+                            <div class="blog-content">
+                                <h3 class="text-xl mb-2">Breathwork for Busy Lives</h3>
+                                <p class="text-sm mb-4">Simple yet powerful breathing techniques that can be integrated into your daily routine to create moments of calm amid life's demands.</p>
+                                <a href="#" class="text-terracotta hover:underline">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="w-full md:w-1/3 p-4">
+                        <div class="blog-card">
+                            <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1636953056323-9c09fdd74fa6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');"></div>
+                            <div class="blog-content">
+                                <h3 class="text-xl mb-2">Nourishing Practices for Spring</h3>
+                                <p class="text-sm mb-4">Seasonal yoga and nutrition recommendations to align your practice with spring's energy of renewal and growth.</p>
+                                <a href="#" class="text-terracotta hover:underline">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Connect Section -->
+        <section id="connect" class="section-padding" style="background-color: var(--sage-green);">
+            <div class="container mx-auto">
+                <h2 class="section-title text-white">Connect With Us</h2>
+                <p class="text-white text-lg mb-12 max-w-3xl">Begin your journey with Namaste Zen and discover the transformative power of mindful practice in our luxurious sanctuary.</p>
+    
+                <div class="flex flex-wrap -mx-4 mb-12">
+                    <div class="w-full md:w-1/2 p-4">
+                        <h3 class="text-2xl text-white mb-4">Location</h3>
+                        <p class="text-white mb-2">Namaste Zen at The Azure Resort</p>
+                        <p class="text-white mb-4">7500 E Pinnacle Peak Rd, Scottsdale, AZ 85255</p>
+    
+                        <h3 class="text-2xl text-white mb-4 mt-8">Contact</h3>
+                        <p class="text-white mb-2"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="721b1c141d321c131f1301061708171c5c111d1f">[email&#160;protected]</a></p>
+                        <p class="text-white mb-4">(480) 555-8732</p>
+    
+                        <div class="flex mt-6">
+                            <a href="#" class="connect-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="connect-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="connect-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="connect-icon">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="w-full md:w-1/2 p-4">
+                        <h3 class="text-2xl text-white mb-4">Join Our Community</h3>
+                        <p class="text-white mb-6">Subscribe to receive mindfulness tips, class updates, and special offers.</p>
+    
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Your email address" class="newsletter-input">
+                            <button class="newsletter-btn">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-dark-text text-white text-center">
+        <div class="container mx-auto">
+            <p>© 2025 Namaste Zen. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="text-white hover:text-terracotta mx-2">Privacy Policy</a>
+                <a href="#" class="text-white hover:text-terracotta mx-2">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Booking Widget -->
+    <div class="floating-booking" id="floating-booking">
+        <i class="far fa-calendar-alt mr-2"></i> Reserve Your Journey
+    </div>
+
+    <!-- Booking Overlay -->
+    <div class="booking-overlay" id="booking-overlay">
+        <div class="booking-modal">
+            <div class="close-booking" id="close-booking">×</div>
+            <h3 class="text-2xl mb-4">Reserve Your Space</h3>
+            <form class="booking-form">
+                <div class="mb-4">
+                    <label class="block text-sm mb-1">Select Class</label>
+                    <select>
+                        <option>Desert Mindful Flow - 9:30 AM</option>
+                        <option>Sunrise Vinyasa - 6:00 AM</option>
+                        <option>Evening Restorative - 5:30 PM</option>
+                        <option>Moonlight Meditation - 7:30 PM</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm mb-1">Select Date</label>
+                    <input type="date">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm mb-1">Your Name</label>
+                    <input type="text" placeholder="Full Name">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm mb-1">Email Address</label>
+                    <input type="email" placeholder="email@example.com">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm mb-1">Phone Number</label>
+                    <input type="tel" placeholder="(xxx) xxx-xxxx">
+                </div>
+
+                <div class="mb-4">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="mr-2">
+                        <span class="text-sm">Send me SMS reminders</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="booking-submit">Confirm Reservation</button>
+            </form>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        // Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('menu-open');
+        });
+
+        // Booking Widget
+        const floatingBooking = document.getElementById('floating-booking');
+        const bookingOverlay = document.getElementById('booking-overlay');
+        const closeBooking = document.getElementById('close-booking');
+
+        floatingBooking.addEventListener('click', function() {
+            bookingOverlay.classList.add('active');
+        });
+
+        closeBooking.addEventListener('click', function() {
+            bookingOverlay.classList.remove('active');
+        });
+
+        // Scroll Animation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+
+                    if (hamburger.classList.contains('menu-open')) {
+                        hamburger.classList.remove('menu-open');
+                    }
+                }
+            });
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', function() {
+            const parallax = document.querySelector('.parallax');
+            let scrollPosition = window.pageYOffset;
+            parallax.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        });
+    </script>
+</body>
+
+</html>
